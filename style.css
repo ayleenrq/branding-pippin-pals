@@ -77,7 +77,7 @@ a { text-decoration: none; }
   left:  50%;
   transform: translateX(-50%);
   top:   22.58%; /* 217/961  */
-  width: 38%; /* making it slightly larger (from 29.24%) */
+  width: 32%;
   aspect-ratio: 421/527;
   filter: drop-shadow(0 0 24px rgba(0,0,0,0.06));
 }
