@@ -75,8 +75,9 @@ section { overflow: hidden; width: 100%; position: relative; }
 /* Logo: Figma left:509 top:217 width:421 height:527 in 1440×961 */
 .s01-logo-wrap {
   position: absolute;
-  left:  50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   top:   22.58%; /* 217/961  */
   width: 32%;
   aspect-ratio: 421/527;
@@ -1299,9 +1300,10 @@ section { overflow: hidden; width: 100%; position: relative; }
   .s08-icons { flex-direction: row; flex: none; width: 100%; justify-content: center; flex-wrap: wrap; }
   .s08-body { text-align: left; font-size: 18px; }
 
-  /* Pattern strip: allow wrap */
-  .s13 { height: auto; padding: 20px var(--pad); }
-  .s13-row { flex-wrap: wrap; height: auto; justify-content: center; gap: 15px; }
+  /* Pattern strip: keep the loop compact on mobile */
+  .s13 { height: clamp(72px, 22vw, 108px); padding: 12px 0; }
+  .s13-row { flex-wrap: nowrap; height: 100%; justify-content: flex-start; gap: 12px; }
+  .s13-row > img { height: clamp(44px, 14vw, 64px) !important; width: auto !important; }
 
   /* Thank you cards: Stacked layout for better mobile fit */
   .s14 { aspect-ratio: 1 / 1.4; }
