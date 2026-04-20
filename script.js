@@ -80,14 +80,9 @@
   });
 
   // Stunning Photo Split-Wipe Reveals and Hover Zoom for s07, s10, s12
-  // S07: 2 Columns Staggered Wipe & Hover Zoom
+  // S07: Hover Zoom (No Scroll Reveal)
   const groupS07 = gsap.utils.toArray(".s07-left, .s07-right");
   if (groupS07.length) {
-    gsap.from(groupS07, {
-      scrollTrigger: { trigger: ".s07", start: "top 75%" },
-      clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)", // Vertical split wipe
-      opacity: 0, duration: 2, stagger: 0.4, ease: "power3.out"
-    });
     groupS07.forEach(col => {
       const img = col.querySelector("img");
       col.addEventListener("mouseenter", () => gsap.to(img, { scale: 1.08, duration: 0.8, ease: "power2.out" }));
@@ -95,26 +90,16 @@
     });
   }
 
-  // S10: 2 Side Photos Staggered Horizontal Wipe & Hover Zoom
+  // S10: Hover Zoom (No Scroll Reveal)
   const groupS10 = gsap.utils.toArray(".s10-left-photo, .s10-right-photo");
   if (groupS10.length) {
-    gsap.from(groupS10, {
-      scrollTrigger: { trigger: ".s10", start: "top 75%" },
-      clipPath: "polygon(50% 0%, 50% 100%, 50% 100%, 50% 0%)", // Horizontal split wipe
-      opacity: 0, duration: 2, stagger: 0.4, ease: "power3.out"
-    });
     groupS10.forEach(img => {
       img.addEventListener("mouseenter", () => gsap.to(img, { scale: 1.06, duration: 0.8, ease: "power2.out" }));
       img.addEventListener("mouseleave", () => gsap.to(img, { scale: 1, duration: 1, ease: "power2.out" }));
     });
   }
 
-  // S12: Subtle Default Wipe-up
-  gsap.from(".s12 img", {
-    scrollTrigger: { trigger: ".s12", start: "top 80%" },
-    clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)",
-    opacity: 0, scale: 1.15, duration: 1.6, ease: "power4.out"
-  });
+  // S12: (No Scroll Reveal anymore to avoid delay)
 
   // Dedicated S20 Bag Mockup Reveal (Scroll In View)
   const s20Img = document.querySelector(".s20 img");
@@ -126,16 +111,9 @@
     );
   }
 
-  // Dedicated S21 Gallery Reveal & Interactive Hover Zoom
+  // Dedicated S21 Gallery: Hover Zoom (No Scroll Reveal)
   const s21Cells = gsap.utils.toArray(".s21-cell");
   if (s21Cells.length) {
-    // Staggered Split-Wipe Reveal
-    gsap.from(s21Cells, {
-      scrollTrigger: { trigger: ".s21", start: "top 75%" },
-      clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)", // Wipe outwards vertically
-      opacity: 0, duration: 1.8, stagger: 0.3, ease: "power3.out"
-    });
-    
     // Premium Zoom in on hover
     s21Cells.forEach(cell => {
       const img = cell.querySelector("img");
