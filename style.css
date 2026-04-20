@@ -517,14 +517,15 @@ section { overflow: hidden; width: 100%; position: relative; }
   width: 100%;
   height: clamp(80px, 13.33vw, 192px);
   overflow: hidden;
-  padding: clamp(10px, 2.00vw, 28.63px) clamp(8px, 1.66vw, 23.86px);
+  padding: clamp(10px, 2.00vw, 28.63px) 0;
 }
 .s13-row {
   display: flex;
-  gap: clamp(4px, 0.83vw, 11.93px);
+  gap: clamp(12px, 1.25vw, 24px); /* Dikurangi sangat jauh agar icon merapat */
   align-items: center;
   height: 100%;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: max-content;
 }
 /* Logo-square: 144.09×144.09, borderRadius:20.73, border:3.11px #E67C4F */
 .ps-sq {
@@ -1357,6 +1358,38 @@ section { overflow: hidden; width: 100%; position: relative; }
 @media (max-width: 400px) {
   .typo-display { font-size: 60px; }
   .typo-alpha { font-size: 10px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   CUSTOM MAGICAL CURSOR
+   ══════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+  body, a, button, .s01-logo-wrap, .s22-logo, .s08-icon-box {
+    cursor: none !important;
+  }
+}
+
+.magic-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 48px; height: 48px;
+  border: 2px dashed var(--apricot);
+  background: rgba(255,241,161,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform, width, height, border-color, background;
+}
+
+.magic-cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  background: var(--apricot);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform, background;
 }
 
 
